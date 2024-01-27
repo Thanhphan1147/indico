@@ -20,7 +20,6 @@ Internationalization
 Improvements
 ^^^^^^^^^^^^
 
-- Grant exceptions and allow individuals to modify registration (:issue:`5264`, thanks :user:`Thanhphan1147`)
 - Invalidate password reset links once the password has been changed (:pr:`5878`)
 - Add full ACLs for custom conference menu items, instead of just being able to
   restrict them to speakers or registrants (:pr:`5670`, thanks :user:`kewisch`)
@@ -74,6 +73,7 @@ Improvements
   (:issue:`6105, 6106, 6128`, :pr:`6110`, thanks :user:`Moliholy, unconventionaldotdev`)
 - Add week and day views in the category calendar and improve navigation controls
   (:issue:`6108, 6129, 6107`, :pr:`6110`, thanks :user:`Moliholy, unconventionaldotdev`).
+- Grant exceptions and allow individuals to modify registration (:issue:`5264`, thanks :user:`Thanhphan1147`)
 
 Bugfixes
 ^^^^^^^^
