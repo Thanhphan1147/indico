@@ -249,13 +249,6 @@ class Registration(db.Model):
         default=False
     )
 
-    #: Whether the person is allowed to modify their registration
-    exceptional_modification_allowed = db.Column(
-        db.Boolean,
-        nullable=False,
-        default=False
-    )
-
     #: The date/time until which the person can modify their registration
     exceptional_modification_allowed_end_dt = db.Column(
         UTCDateTime,
@@ -424,7 +417,7 @@ class Registration(db.Model):
     @property
     def exceptional_modification_deadline_passed(self):
         if self.exceptional_modification_allowed_end_dt is None:
-            return False
+            return True
         return self.exceptional_modification_allowed_end_dt < now_utc()
 
     @property
@@ -434,7 +427,8 @@ class Registration(db.Model):
         if regform.is_modification_allowed(self):
             if regform.is_modification_open:
                 return True
-            return self.exceptional_modification_allowed and not self.exceptional_modification_deadline_passed
+            return (self.exceptional_modification_allowed_end_dt is not None
+                    and not self.exceptional_modification_deadline_passed)
         return False
 
     @property
